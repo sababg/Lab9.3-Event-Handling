@@ -30,7 +30,7 @@ export const TaskList = ({
       ))}
       <button
         onClick={() => setSortAscending((prev) => !prev)}
-        className="button primary"
+        className="cursor-pointer text-blue-500 hover:text-blue-700"
       >
         Sort by Due Date {sortAscending ? "Ascending" : "Descending"}
       </button>
