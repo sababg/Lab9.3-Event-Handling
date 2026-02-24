@@ -1,5 +1,12 @@
 // types/index.ts
 export type TaskStatus = "pending" | "in-progress" | "completed";
+
+export const TaskStatusEnum = {
+  Pending: "pending",
+  InProgress: "in-progress",
+  Completed: "completed",
+} as const;
+
 export type TaskPriority = "low" | "medium" | "high";
 
 export interface Task {

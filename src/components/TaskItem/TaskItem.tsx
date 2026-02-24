@@ -1,4 +1,8 @@
-import type { TaskItemProps, TaskStatus } from "../../types";
+import {
+  TaskStatusEnum,
+  type TaskItemProps,
+  type TaskStatus,
+} from "../../types";
 
 const priorityColor = {
   low: "text-green-600",
@@ -23,7 +27,9 @@ export const TaskItem: React.FC<TaskItemProps> = ({
 
   return (
     <>
-      <div className="p-4 border rounded-lg shadow-sm hover:shadow-md transition-shadow hover:-translate-y-0.5">
+      <div
+        className={`p-4 border rounded-lg shadow-sm hover:shadow-md transition-shadow hover:-translate-y-0.5 active:translate-0 active:shadow-olive-500 ${task.status === TaskStatusEnum.Completed ? "opacity-60" : "opacity-100"} ${task.status === TaskStatusEnum.Pending ? "border-l-8 border-yellow-600" : task.status === TaskStatusEnum.InProgress ? "border-l-8 border-blue-800" : "border-l-8 border-green-800"}`}
+      >
         <div className="flex justify-between items-start">
           <div>
             <h3 className="text-lg font-semibold">task {task.id}</h3>
