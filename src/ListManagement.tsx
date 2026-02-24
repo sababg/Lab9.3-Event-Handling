@@ -45,7 +45,7 @@ export const ListManagement = () => {
       <TaskFilter onFilterChange={setFilters} />
 
       {filteredTasks.length === 0 ? (
-        <p>No tasks found.</p>
+        <p className="text-Red400">No tasks found.</p>
       ) : (
         <TaskList
           tasks={filteredTasks}

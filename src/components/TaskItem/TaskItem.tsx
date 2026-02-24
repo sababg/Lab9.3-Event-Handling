@@ -60,7 +60,9 @@ export const TaskItem: React.FC<TaskItemProps> = ({
           <span className={`${priorityColor[task.priority]} font-semibold`}>
             Priority: {task.priority}
           </span>
-          <span className="text-Black100">Due: {task.dueDate}</span>
+          <span className="text-Black100">
+            Due: {new Date(task.dueDate).toLocaleDateString()}
+          </span>
         </div>
       </div>
     </>
