@@ -60,7 +60,7 @@ export const ListManagement = () => {
 const taskList: Task[] = [
   {
     description: "lorem ipsum",
-    dueDate: "2/21/2026",
+    dueDate: "2026-03-01",
     id: "1",
     priority: "low",
     status: "completed",
@@ -68,7 +68,7 @@ const taskList: Task[] = [
   },
   {
     description: "lorem ipsum",
-    dueDate: "2/21/2026",
+    dueDate: "2026-04-01",
     id: "2",
     priority: "high",
     status: "in-progress",
@@ -76,7 +76,7 @@ const taskList: Task[] = [
   },
   {
     description: "lorem ipsum",
-    dueDate: "2/21/2026",
+    dueDate: "2026-06-05",
     id: "3",
     priority: "medium",
     status: "pending",

@@ -1,3 +1,4 @@
+import { useMemo, useState } from "react";
 import type { TaskListProps } from "../../types";
 import { TaskItem } from "../TaskItem/TaskItem";
 
@@ -6,9 +7,19 @@ export const TaskList = ({
   onStatusChange,
   tasks,
 }: TaskListProps) => {
+  const [sortAscending, setSortAscending] = useState(true);
+
+  const sortedTasks = useMemo(() => {
+    return tasks.sort((a, b) => {
+      const diff =
+        new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime();
+      return sortAscending ? diff : -diff;
+    });
+  }, [tasks, sortAscending]);
+
   return (
     <div className="flex flex-col items-start justify-start w-[80%] gap-4">
-      {tasks.map((element) => (
+      {sortedTasks.map((element) => (
         <div key={element.id} className="w-full">
           <TaskItem
             onDelete={onDelete}
@@ -17,6 +28,12 @@ export const TaskList = ({
           />
         </div>
       ))}
+      <button
+        onClick={() => setSortAscending((prev) => !prev)}
+        className="button primary"
+      >
+        Sort by Due Date {sortAscending ? "Ascending" : "Descending"}
+      </button>
     </div>
   );
 };
